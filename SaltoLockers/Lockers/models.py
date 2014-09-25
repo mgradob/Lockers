@@ -12,6 +12,10 @@ class Users(models.Model):
     user_match = models.CharField(max_length=50, null=True, blank=True)
     user_has_assigned_key = models.BooleanField(default=0)
 
+    def __str__(self):
+        return self.user_name
+
+
 # Nombre, first, last,
 # Matricula
 # Current ROM Code
@@ -20,8 +24,9 @@ class Users(models.Model):
 class Areas(models.Model):
     area_id = models.IntegerField(primary_key=True)
     area_name = models.CharField(max_length=20, null=True, blank=True)
+    area_descripción = models.CharField(max_length=40, null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.area_name
 
 
@@ -32,7 +37,7 @@ class Lockers(models.Model):
     locker_status = models.IntegerField(default=0, null=True, blank=True)
     fk_area = models.ForeignKey('Areas')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.locker_id
 
 
