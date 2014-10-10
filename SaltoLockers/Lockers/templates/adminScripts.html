@@ -1,0 +1,42 @@
+{% load i18n %}
+<script type="text/javascript" language="javascript">
+   var fk_urls=[];
+   var fk_number=0;
+    /***Add the necessary HTML to the page with the elements of Lockers table
+     * VERIFICAR SI EL CONTENIDO PUESTO EN LA COLUMNA DE HORA ES CORRETO***/
+   $(document).ready(
+    $.getJSON("/Lockers/?format=json", function (data) {
+        var items="";
+        $(data).each(function(index,content){
+            items+="<tr>";
+            items+="<td>"+content.locker_id+"</td>";
+            items+="<td>"+content.locker_name+"</td>";
+            items+="<td>"+content.locker_status+"</td>";
+            var date=new Date(content.locker_start_time)
+            var d=""+date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear();
+            items+="<td>"+d+"</td>";
+            items+="<td>"+date.getHours()+":"+date.getMinutes()+"</td>"+"<td id=fk"+fk_number+"></td>";
+            fk_urls.push(content.fk_area);
+            fk_number++;
+            items+="</tr>";
+        });
+        (document).getElementById("table_body").innerHTML=items;
+        fk_searh();
+    })
+    );
+
+   /***This method search the fk_area of Lockers in Area table, and add it to the HTML
+    * It ***/
+   function fk_searh(){
+       for(var actual_fk= 0,url="";actual_fk<fk_number;actual_fk++) {
+           url=""+fk_urls[actual_fk]+"?format=json";
+           (function(url,actual_fk) { // protects url and actual_fk parameters
+            $.getJSON(url, function (data) {
+                $("#fk"+actual_fk).append(data.area_id);
+            });
+            })(url,actual_fk);
+       }
+   }
+
+
+</script>

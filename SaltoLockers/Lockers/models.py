@@ -7,10 +7,11 @@ class Users(models.Model):
     user_name = models.CharField(max_length=50)
     user_ap = models.CharField(max_length=50)
     user_am = models.CharField(max_length=50)
-    user_times = models.IntegerField(default=0)
+    user_matricula=models.CharField(max_length=9)
+    #user_times = models.IntegerField(default=0)
     user_discount = models.DecimalField(max_digits=3, decimal_places=1, default=0)
-    user_match = models.CharField(max_length=50, null=True, blank=True)
-    user_has_assigned_key = models.BooleanField(default=0)
+    #user_match = models.CharField(max_length=50, null=True, blank=True)
+    #user_has_assigned_key = models.BooleanField(default=0)
 
     def __str__(self):
         return self.user_name
@@ -25,6 +26,7 @@ class Areas(models.Model):
     area_id = models.IntegerField(primary_key=True)
     area_name = models.CharField(max_length=20, null=True, blank=True)
     area_descripción = models.CharField(max_length=40, null=True, blank=True)
+    area_enable=models.BooleanField(default=True);
 
     def __str__(self):
         return self.area_name
@@ -34,7 +36,8 @@ class Lockers(models.Model):
     locker_id = models.IntegerField(primary_key=True)
     locker_name = models.CharField(max_length=20, null=True, blank=True)
     locker_match = models.CharField(max_length=50, null=True, blank=True)
-    locker_status = models.IntegerField(default=0, null=True, blank=True)
+    locker_status = models.CharField(max_length=20, null=True, blank=True)
+    locker_start_time=models.DateTimeField('%Y-%m-%d %H:%M')
     fk_area = models.ForeignKey('Areas')
 
     def __str__(self):
@@ -53,8 +56,9 @@ class Rates(models.Model):
 
 
 class Log(models.Model):
-    log_number = models.AutoField(primary_key=True)
-    log_timestamp = models.DateTimeField(auto_now=True)
+    log_id = models.AutoField(primary_key=True)
+    log_starttime = models.DateTimeField(auto_now=True)
+    log_total_pay=models.FloatField()
     log_rate = models.DecimalField(max_digits=3, decimal_places=2, default=0)
     log_discount = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     log_used_time = models.TimeField()

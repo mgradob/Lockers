@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Lockers',
-    'rest_framework'
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +53,7 @@ ROOT_URLCONF = 'SaltoLockers.urls'
 
 WSGI_APPLICATION = 'SaltoLockers.wsgi.application'
 
-
+LOGIN_URL='/login/'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
