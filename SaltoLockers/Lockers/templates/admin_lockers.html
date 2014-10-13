@@ -58,27 +58,29 @@
   </div>
 
   <div class="row">
+
     <div class="large-9 columns">
-      <div class="panel">
-        <div class="row">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th >Estatus</th>
-                  <th >Fecha de Inicio</th>
-                  <th >Hora de inicio</th>
-                  <th >Area</th>
-                </tr>
-              </thead>
-              <tbody id="table_body"></tbody>
-            </table>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th >Estatus</th>
+              <th >Fecha de Inicio</th>
+              <th >Hora de inicio</th>
+              <th >Area</th>
+              <th width="200dp">Habilitar/Inhabilitar</th>
+            </tr>
+          </thead>
+          <tbody id="table_body"></tbody>
+        </table>
       </div>
-
-
+    <div class="small-3 column">
+        <a id="aplicar" onclick="aplicarCambios()" class="success large button radius">Aplicar Cambios</a>
     </div>
+    </div>
+
+
 
   </div>
     <script>
