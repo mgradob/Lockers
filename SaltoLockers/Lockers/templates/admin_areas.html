@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
   <head>
     {% include "includeScripts.html" %}
-    {% include "admin_lockersScripts.html" %}
+    {% include "admin_areasScripts.html" %}
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,10 +42,10 @@
           <a href="/Lockers_Areas/">Areas</a>
         </li>
         <li class="divider"></li>
-          <li class="divider"></li>
         <li class="button-bar" id="historial">
           <a href="/Historial/">Historial</a>
         </li>
+        <li class="divider"></li>
           <li class="divider"></li>
       </ul>
         <ul class="right">
@@ -58,7 +58,7 @@
   </nav>
 
   <div class="row">
-    <h3 id="titulo">Lockers</h3>
+    <h3 id="titulo">Areas</h3>
   </div>
 
   <div class="row">
@@ -69,19 +69,14 @@
             <tr>
               <th>ID</th>
               <th>Nombre</th>
-              <th >Estatus</th>
-              <th >Fecha de Inicio</th>
-              <th >Hora de inicio</th>
-              <th >Area</th>
-              <th width="200dp">Habilitar/Inhabilitar</th>
+              <th width="200pd">Descripción</th>
+              <th >Estado</th>
             </tr>
           </thead>
           <tbody id="table_body"></tbody>
         </table>
       </div>
-    <div class="small-3 column">
-        <a id="aplicar" onclick="lockerAplicarCambios()" class="success large button radius">Aplicar Cambios</a>
-    </div>
+
     </div>
 
 

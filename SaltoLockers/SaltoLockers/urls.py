@@ -19,7 +19,8 @@ urlpatterns = patterns(
     url(r'^Lockers_Search/', views.LockersSearch.as_view(model='Lockers')),
     url(r'^login', views.login_user),  #Se habilita pagina de administrador
     url(r'^Administrador/$' , views.login_authentification),
-    url(r'^Usuarios$',views.login_authentification),
-    url(r'^Areas$',views.login_authentification),
+    url(r'^Usuarios/$',views.login_authentification),
+    url(r'^Lockers_Areas/$',views.login_authentification),
+    url(r'^Historial/$',views.login_authentification),
     url(r'^logout',views.logout_user),
 )

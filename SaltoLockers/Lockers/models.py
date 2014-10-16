@@ -25,7 +25,7 @@ class Users(models.Model):
 class Areas(models.Model):
     area_id = models.IntegerField(primary_key=True)
     area_name = models.CharField(max_length=20, null=True, blank=True)
-    area_descripción = models.CharField(max_length=40, null=True, blank=True)
+    area_description = models.CharField(max_length=40, null=True, blank=True)
     area_enable = models.BooleanField(default=True);
 
     def __str__(self):
@@ -41,7 +41,7 @@ class Lockers(models.Model):
     fk_area = models.ForeignKey('Areas')
 
     def __str__(self):
-        return self.locker_id
+        return self.locker_name
 
 
 class Rates(models.Model):
@@ -57,10 +57,13 @@ class Rates(models.Model):
 
 class Log(models.Model):
     log_id = models.AutoField(primary_key=True)
-    log_starttime = models.DateTimeField(auto_now=True)
+    log_start_time = models.DateTimeField(auto_now=True)
     log_total_pay = models.FloatField()
     log_rate = models.DecimalField(max_digits=3, decimal_places=2, default=0)
     log_discount = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     log_used_time = models.TimeField()
     fk_locker_id = models.ForeignKey('Lockers')
     fk_user_id = models.ForeignKey('Users')
+
+    def __str__(self):
+        return self.fk_locker_id

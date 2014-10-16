@@ -2,6 +2,7 @@
 <html class="no-js" lang="en">
   <head>
     {% include "includeScripts.html" %}
+    {% include "admin_logScripts.html" %}
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,17 +29,21 @@
       <ul class="left">
         <li class="divider"></li>
         <li class="button-bar" id="lockers">
-          <a >Lockers</a>
+          <a href="/Administrador/">Lockers</a>
         </li>
         <li class="divider"></li>
           <li class="divider"></li>
         <li class="button-bar" id="users">
-          <a href="#">Users</a>
+          <a href="/Usuarios/">Users</a>
         </li>
         <li class="divider"></li>
           <li class="divider"></li>
         <li class="button-bar" id="areas">
-          <a href="#">Areas</a>
+          <a href="/Lockers_Areas/">Areas</a>
+        </li>
+          <li class="divider"></li>
+        <li class="button-bar" id="historial">
+          <a href="/Historial/">Historial</a>
         </li>
         <li class="divider"></li>
           <li class="divider"></li>
@@ -52,99 +57,39 @@
     </section>
   </nav>
 
-
-
-
   <div class="row">
-    <h3 id="titulo">Lockers</h3>
+    <h3 id="titulo">Historial</h3>
   </div>
 
-
-
-
   <div class="row">
 
-    <div class="large-3 panel columns">
-      <img src="http://placehold.it/500x500&text=Image">
-
-      <h4>Header</h4>
-
-      <p>Fusce ullamcorper mauris in eros dignissim molestie posuere felis blandit. Aliquam erat volutpat. Mauris ultricies posuere vehicula. Sed sit amet posuere erat. Quisque in ipsum non augue euismod dapibus non et eros.</p><hr>
-
-      <div class="row">
-        <div class="large-4 columns">
-        <a href="#" class="small button">Link</a>
-        </div>
-
-        <div class="large-4 columns">
-        <a href="#" class="small button">Link</a>
-        </div>
-
-        <div class="large-4 columns">
-        <a href="#" class="small button">Link</a>
-        </div>
-      </div>
-    </div>
-
     <div class="large-9 columns">
-      <div class="panel">
-        <div class="row">
-            <table>
-              <thead>
-                <tr>
-                  <th width="200">Table Header</th>
-                  <th>Table Header</th>
-                  <th width="150">Table Header</th>
-                  <th width="150">Table Header</th>
-                </tr>
-              </thead>
-              <tbody id="table_body">
-                <tr>
-                  <td>Content Goes Here</td>
-                  <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-                  <td>Content Goes Here</td>
-                  <td>Content Goes Here</td>
-                </tr>
-                <tr>
-                  <td>Content Goes Here</td>
-                  <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-                  <td>Content Goes Here</td>
-                  <td>Content Goes Here</td>
-                </tr>
-                <tr>
-                  <td>Content Goes Here</td>
-                  <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-                  <td>Content Goes Here</td>
-                  <td>Content Goes Here</td>
-                </tr>
-              </tbody>
-            </table>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tiempo de inicio</th>
+              <th >Pago total</th>
+              <th >Rate</th>
+              <th >Descuento</th>
+              <th >Tiempo Usado</th>
+              <th >Locker</th>
+              <th >Usuario</th>
+            </tr>
+          </thead>
+          <tbody id="table_body"></tbody>
+        </table>
       </div>
 
-      <div class="row">
-        <div class="large-6 columns">
-          <div class="panel">
-            <h5>Subheader</h5>
-            <p>Sed sit amet posuere erat. Quisque in ipsum non augue euismod dapibus non et eros.</p>
-            <a href="#" class="small button">Link</a>
-          </div>
-        </div>
-
-        <div class="large-6 columns">
-          <div class="panel">
-            <h5>Subheader</h5>
-            <p>Sed sit amet posuere erat. Quisque in ipsum non augue euismod dapibus non et eros.</p>
-            <a href="#" class="small button">Link</a>
-          </div>
-        </div>
-      </div>
     </div>
+
+
 
   </div>
     <script>
       $(document).foundation();
+
     </script>
-  {% include "adminScripts.html" %}
+
   </body>
 </html>

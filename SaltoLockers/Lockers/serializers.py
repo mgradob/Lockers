@@ -16,7 +16,7 @@ class AreasSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Areas
-        fields = ('area_id', 'area_name','area_descripción','area_enable')
+        fields = ('area_id', 'area_name','area_description','area_enable')
 
 
 class LockersSerializer(serializers.HyperlinkedModelSerializer):
@@ -38,5 +38,5 @@ class LogSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Log
-        fields = ('log_id', 'log_starttime', 'log_total_pay', 'log_rate' ,'log_rate','log_discount', 'log_used_time', 'fk_locker_id',
+        fields = ('log_id', 'log_start_time', 'log_total_pay', 'log_rate' ,'log_discount', 'log_used_time', 'fk_locker_id',
                   'fk_user_id')
