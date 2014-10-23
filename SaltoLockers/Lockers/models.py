@@ -10,7 +10,7 @@ class Users(models.Model):
     user_matricula = models.CharField(max_length=9)
     # user_times = models.IntegerField(default=0)
     user_discount = models.DecimalField(max_digits=3, decimal_places=1, default=0)
-    #user_match = models.CharField(max_length=50, null=True, blank=True)
+    # user_match = models.CharField(max_length=50, null=True, blank=True)
     #user_has_assigned_key = models.BooleanField(default=0)
 
     def __str__(self):
@@ -26,7 +26,7 @@ class Areas(models.Model):
     area_id = models.IntegerField(primary_key=True)
     area_name = models.CharField(max_length=20, null=True, blank=True)
     area_description = models.CharField(max_length=40, null=True, blank=True)
-    area_enable = models.BooleanField(default=True);
+    area_enable = models.BooleanField(default=True)
 
     def __str__(self):
         return self.area_name
@@ -39,6 +39,7 @@ class Lockers(models.Model):
     locker_status = models.CharField(max_length=20, null=True, blank=True)
     locker_start_time = models.DateTimeField('%Y-%m-%d %H:%M')
     fk_area = models.ForeignKey('Areas')
+    fk_user = models.ForeignKey('Users')
 
     def __str__(self):
         return self.locker_name
