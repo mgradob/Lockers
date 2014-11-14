@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.contrib.auth.decorators import login_required
 import django_filters
 from rest_framework import permissions
@@ -15,7 +16,7 @@ from django.http import HttpResponseRedirect
 # Este metodo hace el login del usuario y lo redirecciona a la pagina de
 # administrador, si no lo hace lanza un mensaje de error
 def login_user(request):
-    state = "Inicie sesión"
+    state = "Inicie sesion"
     username = password = ''
     if not request.user.is_authenticated():
         if request.POST:
@@ -27,7 +28,7 @@ def login_user(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    state = 'Inicio de sesión exitoso'
+                    state = 'Inicio de sesion exitoso'
                     # urlpatterns =patterns ('', (r'^admin_page/$', RedirectView.as_view(url='http://google.com')),)
                     # return redirect('/admin_page/')
                     return HttpResponseRedirect('/Administrador/')
@@ -98,7 +99,7 @@ class LockersFilter(django_filters.FilterSet):
 
     class Meta:
         model = Lockers
-        fields = ['locker_id', 'locker_status', 'fk_area']
+        fields = ['locker_id', 'locker_status', 'fk_area', 'fk_user']
         #fields = ['locker_id', 'locker_match', 'locker_status', 'fk_area']
 
 

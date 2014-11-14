@@ -37,9 +37,9 @@ class Lockers(models.Model):
     locker_name = models.CharField(max_length=20, null=True, blank=True)
     locker_match = models.CharField(max_length=50, null=True, blank=True)
     locker_status = models.CharField(max_length=20, null=True, blank=True)
-    locker_start_time = models.DateTimeField('%Y-%m-%d %H:%M')
+    locker_start_time = models.DateTimeField('%Y-%m-%d %H:%M', null=True, blank=True)
     fk_area = models.ForeignKey('Areas')
-    fk_user = models.ForeignKey('Users')
+    fk_user = models.ForeignKey('Users', null=True, blank=True)
 
     def __str__(self):
         return self.locker_name

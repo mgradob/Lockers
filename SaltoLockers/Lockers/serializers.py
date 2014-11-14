@@ -20,7 +20,7 @@ class AreasSerializer(serializers.HyperlinkedModelSerializer):
 class LockersSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Lockers
-        fields = ('locker_id', 'locker_name', 'locker_status', 'locker_start_time', 'fk_area', 'fk_user')
+        fields = ('locker_id', 'locker_name', 'locker_match', 'locker_status', 'locker_start_time', 'fk_area', 'fk_user')
         # fields = ('locker_id', 'locker_name', 'locker_match', 'locker_status', 'fk_area')
 
 
